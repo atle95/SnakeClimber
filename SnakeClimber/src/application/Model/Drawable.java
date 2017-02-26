@@ -1,6 +1,6 @@
 package application.Model;
 
-import java.awt.*;
+import javafx.scene.image.Image;
 
 /**
  * Created by benma on 2/25/2017.
