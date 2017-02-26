@@ -1,5 +1,6 @@
 package application.Model;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -17,19 +18,22 @@ public class Drawable extends GameObject{
      */
     public double ticksPerFrame;
 
+    private GraphicsContext gfx;
     private int imageIndex, ticks;
+
     public ArrayList<Image> images;
 
-    public Drawable(ArrayList<Image> images){
-        this(images, 1);
+    public Drawable(ArrayList<Image> images, GraphicsContext gfx){
+        this(images, gfx, 1);
     }
 
-    public Drawable(ArrayList<Image> images, double scale){
-        this(images, scale, 5);
+    public Drawable(ArrayList<Image> images, GraphicsContext gfx, double scale){
+        this(images, gfx, scale, 5);
     }
 
-    public Drawable(ArrayList<Image> images, double scale, double ticksPerFrame){
+    public Drawable(ArrayList<Image> images, GraphicsContext gfx, double scale, double ticksPerFrame){
         this.images = images;
+        this.gfx = gfx;
         this.scale = scale;
         this.ticksPerFrame = ticksPerFrame;
 
@@ -43,10 +47,10 @@ public class Drawable extends GameObject{
             ticks = 0;
             imageIndex = (imageIndex+1)%images.size();
         }
-
     }
 
     public void render(){
-        
+        Image image = images.get(imageIndex);
+        gfx.drawImage(images.get(imageIndex), x, y, image.getWidth()*scale, image.getHeight()*scale);
     }
 }
