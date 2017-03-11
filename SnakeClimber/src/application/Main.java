@@ -36,7 +36,7 @@ public class Main extends Application {
   Canvas canvas;
   Random r = new Random();
   public double globalPrune = 0.75;
-  int numcolors = 10;
+  int numcolors = 100;
   
 	@Override
 	public void start(Stage primaryStage) {
@@ -160,15 +160,15 @@ public class Main extends Application {
 //          int col = (int) (255*Math.sqrt(samples^2-i^2)/samples);
           
           
+//          rl.cycleColors();
           rl.cycleColors();
-//          cycleColors(colorList);
-//          cycleColors(colorList);
+//          rl.cycleColors();
           Color c = rl.colorList.get(0);
           
           int red   = (int) ((c.getRed()  *255)+col)/2;
           int green = (int) ((c.getGreen()*255)+col)/2;
           int blue  = (int) ((c.getBlue() *255)+col)/2;
-          Color shadec = Color.rgb(red, green, blue, 0.95);
+          Color shadec = Color.rgb(red, green, blue, 1);
           
           gfx.setFill(shadec);
           gfx.setStroke(shadec);
